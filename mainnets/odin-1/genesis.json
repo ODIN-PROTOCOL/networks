@@ -1,0 +1,539 @@
+{
+  "genesis_time": "2021-12-01T01:49:44.41172346Z",
+  "chain_id": "odin-mainnet-freya",
+  "initial_height": "1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "1000000",
+      "max_gas": "5000000",
+      "time_iota_ms": "5000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000",
+      "max_bytes": "1000000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "secp256k1"
+      ]
+    },
+    "version": {}
+  },
+  "validators": [
+    {
+      "address": "A89E994001937C100ABA7C96CF93427E60DD4073",
+      "pub_key": {
+        "type": "tendermint/PubKeySecp256k1",
+        "value": "A6/d6hichc9Hf73l0T8wHA49joGiOI7/r+fdyOILFxuF"
+      },
+      "power": "1000",
+      "name": "validator1"
+    },
+    {
+      "address": "472E645AF6EB906D7BA829F434400380A29DFC0B",
+      "pub_key": {
+        "type": "tendermint/PubKeySecp256k1",
+        "value": "AhNBC9psk+udS/HC4UiY49pZclAXNVlKij2cTZA2MyBH"
+      },
+      "power": "1000",
+      "name": "validator2"
+    },
+    {
+      "address": "66842F384035B042CEB8702FCE426B5A4B1D24E0",
+      "pub_key": {
+        "type": "tendermint/PubKeySecp256k1",
+        "value": "A8n0GHICcSO0ePRnlb2TNCS7xC6szbUl3kYq4DNIi4uh"
+      },
+      "power": "1000",
+      "name": "validator3"
+    },
+    {
+      "address": "7B2ED83A2BA505F86031F4F5D250A6822EAACC8C",
+      "pub_key": {
+        "type": "tendermint/PubKeySecp256k1",
+        "value": "AomZrDITs1vUbJXVx5sTpb3jbE2PkaNC+NI+YPGyj6Xs"
+      },
+      "power": "1000",
+      "name": "validator4"
+    }
+  ],
+  "app_hash": "",
+  "app_state": {
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "5",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin1eugydm4f9ntrtsrwkvdvdevh0xfflksjttslm4",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin1sa0ncaj75vatdghhcfr6ew7n5ua909w2ndes7y",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin18qj4venht306yuxkz9udr3vs6h7n5rj2km7kuw",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin14z0fjsqpjd7pqz460jtvly6z0esd6srn42w6tg",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin1guhxgkhkawgx67ag986rgsqrsz3fmlqt6vw40y",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin1v6zz7wzqxkcy9n4cwqhuusnttf936f8qpc8ax3",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin10vhdsw3t55zlscp37n6ay59xsgh24nyv7782tw",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        }
+      ]
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": true
+      },
+      "balances": [
+        {
+          "address": "odin1eugydm4f9ntrtsrwkvdvdevh0xfflksjttslm4",
+          "coins": [
+            {
+              "denom": "loki",
+              "amount": "4000000000000"
+            },
+            {
+              "denom": "minigeo",
+              "amount": "17500000000000"
+            }
+          ]
+        },
+        {
+          "address": "odin1sa0ncaj75vatdghhcfr6ew7n5ua909w2ndes7y",
+          "coins": [
+            {
+              "denom": "loki",
+              "amount": "3004000000000"
+            },
+            {
+              "denom": "minigeo",
+              "amount": "273000000000000"
+            }
+          ]
+        },
+        {
+          "address": "odin18qj4venht306yuxkz9udr3vs6h7n5rj2km7kuw",
+          "coins": [
+            {
+              "denom": "loki",
+              "amount": "2992000000000"
+            },
+            {
+              "denom": "minigeo",
+              "amount": "8750000000000"
+            }
+          ]
+        },
+        {
+          "address": "odin14z0fjsqpjd7pqz460jtvly6z0esd6srn42w6tg",
+          "coins": [
+
+          ]
+        },
+        {
+          "address": "odin1guhxgkhkawgx67ag986rgsqrsz3fmlqt6vw40y",
+          "coins": [
+
+          ]
+        },
+        {
+          "address": "odin1v6zz7wzqxkcy9n4cwqhuusnttf936f8qpc8ax3",
+          "coins": [
+
+          ]
+        },
+        {
+          "address": "odin10vhdsw3t55zlscp37n6ay59xsgh24nyv7782tw",
+          "coins": [
+
+          ]
+        }
+      ],
+      "supply": [
+        {
+          "denom": "loki",
+          "amount": "100000000000000"
+        },
+        {
+          "denom": "minigeo",
+          "amount": "350000000000000"
+        }
+      ],
+      "denom_metadata": []
+    },
+    "capability": {
+      "index": "1",
+      "owners": []
+    },
+    "coinswap": {
+      "initial_rate": "1.000000000000000000",
+      "params": {
+        "exchange_rates": [
+          {
+            "from": "loki",
+            "to": "odin",
+            "rate_multiplier": "0.000001000000000000"
+          },
+          {
+            "from": "odin",
+            "to": "loki",
+            "rate_multiplier": "1000000.000000000000000000"
+          },
+          {
+            "from": "minigeo",
+            "to": "geo",
+            "rate_multiplier": "0.000001000000000000"
+          },
+          {
+            "from": "geo",
+            "to": "minigeo",
+            "rate_multiplier": "1000000.000000000000000000"
+          }
+        ]
+      }
+    },
+    "auction": {
+      "params": {
+        "auction_start_threshold": [
+          {
+            "denom": "loki",
+            "amount": "10000000000"
+          }
+        ],
+        "exchange_rates": [
+          {
+            "from": "minigeo",
+            "to": "loki",
+            "rate_multiplier": "0.100000000000000000"
+          }
+        ]
+      }
+    },
+    "crisis": {
+      "constant_fee": {
+        "denom": "loki",
+        "amount": "10000000000"
+      }
+    },
+    "distribution": {
+      "params": {
+        "community_tax": "0.020000000000000000",
+        "base_proposer_reward": "0.030000000000000000",
+        "bonus_proposer_reward": "0.120000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "fee_pool": {
+        "community_pool": [
+          {
+            "denom": "loki",
+            "amount": "30000000000000"
+          },
+          {
+            "denom": "minigeo",
+            "amount": "50750000000000"
+          }
+        ]
+      },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "evidence": {
+      "evidence": []
+    },
+    "genutil": {
+      "gen_txs": []
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": {
+        "min_deposit": [
+          {
+            "denom": "loki",
+            "amount": "1000000000"
+          }
+        ],
+        "max_deposit_period": "120m"
+      },
+      "voting_params": {
+        "voting_period": "120m"
+      },
+      "tally_params": {
+        "quorum": "0.090000000000000000",
+        "threshold": "0.090000000000000000",
+        "veto_threshold": "0.334000000000000000"
+      }
+    },
+    "ibc": {
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "params": {
+          "allowed_clients": [
+            "06-solomachine",
+            "07-tendermint"
+          ]
+        },
+        "create_localhost": false,
+        "next_client_sequence": "0"
+      },
+      "connection_genesis": {
+        "connections": [],
+        "client_connection_paths": [],
+        "next_connection_sequence": "0"
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0"
+      }
+    },
+    "mint": {
+      "minter": {
+        "inflation": "0.130000000000000000",
+        "annual_provisions": "0.000100000000000000"
+      },
+      "params": {
+        "integration_addresses" : {
+          "bsc": "0xa19Df1199CeEfd7831576f1D055E454364337633",
+          "eth": "0xa19Df1199CeEfd7831576f1D055E454364337634"
+        },
+        "mint_denom": "loki",
+        "inflation_rate_change": "0.130000000000000000",
+        "inflation_max": "0.200000000000000000",
+        "inflation_min": "0.070000000000000000",
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "10519200",
+        "mint_air": false,
+        "max_withdrawal_per_time": [
+          {
+            "denom": "loki",
+            "amount": "100000000000"
+          }
+        ],
+        "eligible_accounts_pool": [
+          "odin18qj4venht306yuxkz9udr3vs6h7n5rj2km7kuw"
+        ]
+      },
+      "mint_pool": {
+        "treasury_pool": [
+          {
+            "denom": "loki",
+            "amount": "50000000000000"
+          }
+        ]
+      }
+    },
+    "oracle": {
+      "params": {
+        "max_raw_request_count": "12",
+        "max_ask_count": "16",
+        "expiration_block_count": "100",
+        "base_owasm_gas": "150000",
+        "per_validator_request_gas": "30000",
+        "sampling_try_count": "3",
+        "oracle_reward_percentage": "70",
+        "inactive_penalty_duration": "600000000000",
+        "max_data_size": "1024",
+        "max_calldata_size": "1024",
+        "data_provider_reward_per_byte": [
+          {
+            "denom": "minigeo",
+            "amount": "1000000"
+          }
+        ],
+        "data_provider_reward_threshold": {
+          "amount": [
+            {
+              "denom": "minigeo",
+              "amount": "200000000000"
+            }
+          ],
+          "blocks": "28820"
+        },
+        "reward_decreasing_fraction": "0.200000000000000000",
+        "data_requester_fee_denoms": [
+          "loki"
+        ]
+      },
+      "data_sources": [],
+      "oracle_scripts": [],
+      "oracle_pool": {
+        "data_providers_pool": [
+          {
+            "denom": "loki",
+            "amount": "10000000000000"
+          }
+        ]
+      }
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "30000",
+        "min_signed_per_window": "0.050000000000000000",
+        "downtime_jail_duration": "600s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.000100000000000000"
+      },
+      "signing_infos": [],
+      "missed_blocks": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "1814400s",
+        "max_validators": 100,
+        "max_entries": 7,
+        "historical_entries": 1000,
+        "bond_denom": "loki"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": [],
+      "validators": [
+        {
+          "description": {
+            "moniker": "validator1"
+          },
+          "commission": {
+            "commission_rates": {
+              "rate": "0.100000000000000000",
+              "max_rate": "0.200000000000000000",
+              "max_change_rate": "0.010000000000000000"
+            }
+          },
+          "status": "BOND_STATUS_UNBONDED",
+          "delegator_shares": "0.000000000000000000",
+          "min_self_delegation": "1",
+          "operator_address": "odinvaloper14z0fjsqpjd7pqz460jtvly6z0esd6srnch6yzu",
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "A6/d6hichc9Hf73l0T8wHA49joGiOI7/r+fdyOILFxuF"
+          },
+          "tokens": "1000000000"
+        },
+        {
+          "description": {
+            "moniker": "validator2"
+          },
+          "commission": {
+            "commission_rates": {
+              "rate": "0.100000000000000000",
+              "max_rate": "0.200000000000000000",
+              "max_change_rate": "0.010000000000000000"
+            }
+          },
+          "status": "BOND_STATUS_UNBONDED",
+          "delegator_shares": "0.000000000000000000",
+          "min_self_delegation": "1",
+          "operator_address": "odinvaloper1guhxgkhkawgx67ag986rgsqrsz3fmlqth36txs",
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "AhNBC9psk+udS/HC4UiY49pZclAXNVlKij2cTZA2MyBH"
+          },
+          "tokens": "1000000000"
+        },
+        {
+          "description": {
+            "moniker": "validator3"
+          },
+          "commission": {
+            "commission_rates": {
+              "rate": "0.100000000000000000",
+              "max_rate": "0.200000000000000000",
+              "max_change_rate": "0.010000000000000000"
+            }
+          },
+          "status": "BOND_STATUS_UNBONDED",
+          "delegator_shares": "0.000000000000000000",
+          "min_self_delegation": "1",
+          "operator_address": "odinvaloper1v6zz7wzqxkcy9n4cwqhuusnttf936f8qv9nr09",
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "A8n0GHICcSO0ePRnlb2TNCS7xC6szbUl3kYq4DNIi4uh"
+          },
+          "tokens": "1000000000"
+        },
+        {
+          "description": {
+            "moniker": "validator4"
+          },
+          "commission": {
+            "commission_rates": {
+              "rate": "0.100000000000000000",
+              "max_rate": "0.200000000000000000",
+              "max_change_rate": "0.010000000000000000"
+            }
+          },
+          "status": "BOND_STATUS_UNBONDED",
+          "delegator_shares": "0.000000000000000000",
+          "min_self_delegation": "1",
+          "operator_address": "odinvaloper10vhdsw3t55zlscp37n6ay59xsgh24nyvnrn5z6",
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "AomZrDITs1vUbJXVx5sTpb3jbE2PkaNC+NI+YPGyj6Xs"
+          },
+          "tokens": "1000000000"
+        }
+      ],
+      "delegations": [],
+      "unbonding_delegations": [],
+      "redelegations": [],
+      "exported": false
+    },
+    "upgrade": {}
+  }
+}
