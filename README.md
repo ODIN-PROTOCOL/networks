@@ -4,7 +4,7 @@
   * [TestNet](https://github.com/ODIN-PROTOCOL/networks/tree/master/testnets/testnet-heimdall)
 
 * **Main Net** 
-  * [MainNet](https://github.com/ODIN-PROTOCOL/networks/tree/master/mainnets/odin-1)
+  * [MainNet](https://github.com/ODIN-PROTOCOL/networks/tree/master/mainnets/odin-mainnet-freya)
 
 
 
