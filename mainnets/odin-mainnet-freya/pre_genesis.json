@@ -6,7 +6,7 @@
     "block": {
       "max_bytes": "1000000",
       "max_gas": "5000000",
-      "time_iota_ms": "5000"
+      "time_iota_ms": "1000"
     },
     "evidence": {
       "max_age_num_blocks": "100000",
@@ -456,7 +456,7 @@
             }
           },
           "status": "BOND_STATUS_UNBONDED",
-          "delegator_shares": "0.000000000000000000",
+          "delegator_shares": "1.000000000000000000",
           "min_self_delegation": "1",
           "operator_address": "odinvaloper14z0fjsqpjd7pqz460jtvly6z0esd6srnch6yzu",
           "consensus_pubkey": {
@@ -477,7 +477,7 @@
             }
           },
           "status": "BOND_STATUS_UNBONDED",
-          "delegator_shares": "0.000000000000000000",
+          "delegator_shares": "1.000000000000000000",
           "min_self_delegation": "1",
           "operator_address": "odinvaloper1guhxgkhkawgx67ag986rgsqrsz3fmlqth36txs",
           "consensus_pubkey": {
@@ -498,7 +498,7 @@
             }
           },
           "status": "BOND_STATUS_UNBONDED",
-          "delegator_shares": "0.000000000000000000",
+          "delegator_shares": "1.000000000000000000",
           "min_self_delegation": "1",
           "operator_address": "odinvaloper1v6zz7wzqxkcy9n4cwqhuusnttf936f8qv9nr09",
           "consensus_pubkey": {
@@ -519,7 +519,7 @@
             }
           },
           "status": "BOND_STATUS_UNBONDED",
-          "delegator_shares": "0.000000000000000000",
+          "delegator_shares": "1.000000000000000000",
           "min_self_delegation": "1",
           "operator_address": "odinvaloper10vhdsw3t55zlscp37n6ay59xsgh24nyvnrn5z6",
           "consensus_pubkey": {
@@ -529,11 +529,40 @@
           "tokens": "1000000000"
         }
       ],
-      "delegations": [],
+      "delegations": [
+        {
+          "delegator_address": "odin14z0fjsqpjd7pqz460jtvly6z0esd6srn42w6tg",
+          "validator_address": "odinvaloper14z0fjsqpjd7pqz460jtvly6z0esd6srnch6yzu",
+          "shares": "1.000000000000000000"
+        },
+        {
+          "delegator_address": "odin1guhxgkhkawgx67ag986rgsqrsz3fmlqt6vw40y",
+          "validator_address": "odinvaloper1guhxgkhkawgx67ag986rgsqrsz3fmlqth36txs",
+          "shares": "1.000000000000000000"
+        },
+        {
+          "delegator_address": "odin1v6zz7wzqxkcy9n4cwqhuusnttf936f8qpc8ax3",
+          "validator_address": "odinvaloper1v6zz7wzqxkcy9n4cwqhuusnttf936f8qv9nr09",
+          "shares": "1.000000000000000000"
+        },
+        {
+          "delegator_address": "odin10vhdsw3t55zlscp37n6ay59xsgh24nyv7782tw",
+          "validator_address": "odinvaloper10vhdsw3t55zlscp37n6ay59xsgh24nyvnrn5z6",
+          "shares": "1.000000000000000000"
+        }
+      ],
       "unbonding_delegations": [],
       "redelegations": [],
       "exported": false
     },
-    "upgrade": {}
+    "upgrade": {},
+    "transfer": {
+      "port_id": "odin_transfer",
+      "denom_traces": [],
+      "params": {
+        "send_enabled": true,
+        "receive_enabled": true
+      }
+    }
   }
 }
