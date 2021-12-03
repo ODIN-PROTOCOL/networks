@@ -1,0 +1,23 @@
+version: "3.5"
+
+services:
+  validator:
+    image: odinprotocol/core:mainnet-freya
+    container_name: validator
+    command: odind start --rpc.laddr tcp://0.0.0.0:26657
+    ports:
+      - 26658:26658
+      - 26657:26657
+      - 26656:26656
+      - 9090:9090
+      - 1317:1317
+    volumes:
+      - vol:/root/.odin
+      - ./node_key.json:/root/.odin/config/node_key.json
+      - ./priv_validator_key.json:/root/.odin/config/priv_validator_key.json
+      - ./genesis.json:/root/.odin/config/genesis.json
+      - ./app.toml:/root/.odin/config/app.toml
+      - ./config.toml:/root/.odin/config/config.toml
+
+volumes:
+  vol:
