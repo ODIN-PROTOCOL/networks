@@ -1,0 +1,61 @@
+{
+  "body": {
+    "messages": [
+      {
+        "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+        "description": {
+          "moniker": "WhisperNode",
+          "identity": "5E541F9F27608D36",
+          "website": "https://WhisperNode.com",
+          "security_contact": "hello@whispernode.com",
+          "details": "WhisperNode operates robust, high up-time validators across multiple Cosmos-based blockchains. We are highly active participants in the communities we validate for as we believe this is a necessity for effective on-chain governance and staying up to date on all network issues."
+        },
+        "commission": {
+          "rate": "0.050000000000000000",
+          "max_rate": "0.100000000000000000",
+          "max_change_rate": "0.050000000000000000"
+        },
+        "min_self_delegation": "1",
+        "delegator_address": "odin18av2qz6mckvlj95c9u7sjqvd9sfk40vctyyflw",
+        "validator_address": "odinvaloper18av2qz6mckvlj95c9u7sjqvd9sfk40vcxeshk6",
+        "pubkey": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "A9AtATmlldARCNyDBvSFSmlBntqBAkZqnIZZCQvAIgar"
+        },
+        "value": {
+          "denom": "loki",
+          "amount": "10000000"
+        }
+      }
+    ],
+    "memo": "781badaa109f63d1baea3a4cd239f74111f1870b@161.97.91.196:26656",
+    "timeout_height": "0",
+    "extension_options": [],
+    "non_critical_extension_options": []
+  },
+  "auth_info": {
+    "signer_infos": [
+      {
+        "public_key": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "A6HspaxeL4P+oDZfIh2fyJGi0HWxrn+8tbX9kk9uHYAM"
+        },
+        "mode_info": {
+          "single": {
+            "mode": "SIGN_MODE_DIRECT"
+          }
+        },
+        "sequence": "0"
+      }
+    ],
+    "fee": {
+      "amount": [],
+      "gas_limit": "200000",
+      "payer": "",
+      "granter": ""
+    }
+  },
+  "signatures": [
+    "Aa6riAElcVPfe4KtsnUGYKobeBujjX3Nja4FavVlt0xS9X7HDef64XJarp8Sskp6fn3p72p0LFb/NevGeNpC5g=="
+  ]
+}
