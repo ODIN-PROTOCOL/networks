@@ -1,6 +1,6 @@
 # ODIN MAINNET FREYA
 
-## First part is to submit the gentx.This is open until Tuesday, December 7th.
+## First part is to submit the gentx. This is open until Tuesday, December 7th.
 
 ## Hardware Requirements
 * **Minimal**
@@ -107,7 +107,7 @@ odind keys show <key-name> -a
 
 ## Validator setup instructions for validators participating in the genesis
 
-### GenTx : Will Be Accepting Soon.
+### GenTx: Accepting now.
 
 * [Install](#installation-steps) odin core application
 * Initialize node
