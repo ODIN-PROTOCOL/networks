@@ -1,6 +1,6 @@
 # ODIN MAINNET FREYA
 
-## First part is to submit the gentx. WHICH IS CLOSED NOW.
+## First part is to submit the gentx.This is open until Tuesday, December 7th.
 
 ## Hardware Requirements
 * **Minimal**
