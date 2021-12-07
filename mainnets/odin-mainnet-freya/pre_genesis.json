@@ -117,6 +117,27 @@
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin1wus5hsyygqvyr5nvxmgcsmq59fp68wx7qdcwwq",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin1ykaz46892vnshe5ykq7x53mfj7apujkjcq0kvf",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "odin1k8rd7wru9az7clrmreyg7q9vc5wuq5gqsdsdwh",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
         }
       ]
     },
@@ -131,7 +152,7 @@
           "coins": [
             {
               "denom": "loki",
-              "amount": "4000000000000"
+              "amount": "10000000000000"
             },
             {
               "denom": "minigeo",
@@ -144,7 +165,7 @@
           "coins": [
             {
               "denom": "loki",
-              "amount": "3004000000000"
+              "amount": "5000000000000"
             },
             {
               "denom": "minigeo",
@@ -157,7 +178,7 @@
           "coins": [
             {
               "denom": "loki",
-              "amount": "2992000000000"
+              "amount": "4996000000000"
             },
             {
               "denom": "minigeo",
@@ -166,27 +187,30 @@
           ]
         },
         {
-          "address": "odin1weryas9wx2saawjuefxtkxt0ayv9956yxxtwnr",
+          "address": "odin1wus5hsyygqvyr5nvxmgcsmq59fp68wx7qdcwwq",
           "coins": [
-
+            {
+              "denom": "loki",
+              "amount": "6000000000000"
+            }
           ]
         },
         {
-          "address": "odin1ypmlekjd2mhjlh0263wtqjmskz77sclst9r9a9",
+          "address": "odin1ykaz46892vnshe5ykq7x53mfj7apujkjcq0kvf",
           "coins": [
-
+            {
+              "denom": "loki",
+              "amount": "17000000000000"
+            }
           ]
         },
         {
-          "address": "odin12hpn6mxulk8gt9zu0hs5lv20y666gmus00a6cr",
+          "address": "odin1k8rd7wru9az7clrmreyg7q9vc5wuq5gqsdsdwh",
           "coins": [
-
-          ]
-        },
-        {
-          "address": "odin1k4uuv8aanj3ejs0qhqmsax9d6lzmp0pl0gkc42",
-          "coins": [
-
+            {
+              "denom": "loki",
+              "amount": "17000000000000"
+            }
           ]
         }
       ],
@@ -265,10 +289,6 @@
       },
       "fee_pool": {
         "community_pool": [
-          {
-            "denom": "loki",
-            "amount": "30000000000000"
-          },
           {
             "denom": "minigeo",
             "amount": "50750000000000"
@@ -359,7 +379,7 @@
         "inflation_min": "0.070000000000000000",
         "goal_bonded": "0.670000000000000000",
         "blocks_per_year": "10519200",
-        "mint_air": false,
+        "mint_air": true,
         "max_withdrawal_per_time": [
           {
             "denom": "loki",
@@ -374,7 +394,7 @@
         "treasury_pool": [
           {
             "denom": "loki",
-            "amount": "50000000000000"
+            "amount": "25000000000000"
           }
         ]
       }
@@ -417,7 +437,7 @@
         "data_providers_pool": [
           {
             "denom": "loki",
-            "amount": "10000000000000"
+            "amount": "15000000000000"
           }
         ]
       }
