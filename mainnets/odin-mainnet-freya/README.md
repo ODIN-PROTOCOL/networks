@@ -104,65 +104,24 @@ Check your key:
 odind keys show <key-name> -a
 ```
 
-
-## Validator setup instructions for validators participating in the genesis
-
-### GenTx: Accepting now.
-
-* [Install](#installation-steps) odin core application
-* Initialize node
-
-```shell
-odind init "{{NODE_NAME}}" --chain-id odin-mainnet-freya
-```
-
-* Replace the contents of your `${HOME}/.odin/config/genesis.json` with that of mainnets/odin-mainnet-freya/pre_genesis.json.
-
-```shell
-wget https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/pre_genesis.json
-```
-**WARNING: DO NOT PUT MORE THAN 10000000loki or your gentx will be rejected**
-```shell
-odind add-genesis-account "{{KEY_NAME}}" 10000000loki
-odind gentx "{{KEY_NAME}}" 10000000loki \
---chain-id odin-mainnet-freya \
---moniker="{{VALIDATOR_NAME}}" \
---commission-max-change-rate=0.01 \
---commission-max-rate=0.2 \
---commission-rate=0.1 \
---details="XXXXXXXX" \
---security-contact="XXXXXXXX" \
---website="XXXXXXXX"
-```
-
-1. Copy the contents of `${HOME}/.odin/config/gentx/gentx-XXXXXXXX.json`.
-2. Fork the [repository](https://github.com/ODIN-PROTOCOL/networks/)
-3. Create a file `gentx-{{VALIDATOR_NAME}}.json` under the mainnets/odin-mainnet-freya/gentxs folder in the forked repo, paste the copied text into the file. Find reference file gentx-examplexxxxxxxx.json in the same folder.
-4. Run `odind tendermint show-node-id` and copy your nodeID.
-5. Run `ifconfig` or `curl ipinfo.io/ip` and copy your publicly reachable IP address.
-6. Create a file `peers-{{VALIDATOR_NAME}}.json` under the mainnets/odin-mainnet-freya/peers folder in the forked repo, paste the copied text from the last two steps into the file. Find reference file sample-peers.json in the same folder. (e.g. fd4351c2e9928213b3d6ddce015c4664e6138@3.127.204.206)
-
-7. Create a Pull Request to the `master` branch of the [repository](https://github.com/ODIN-PROTOCOL/networks)
->**NOTE:** The Pull Request will be merged by the maintainers to confirm the inclusion of the validator at the genesis.Maximum number of validators - 100. The final genesis file will be published under the file mainnets/odin-mainent-freya/genesis_final.json.
-
-
-## Validator run instruction
+## Validator Setup Instructions
 
 ### Set minimum gas fees
 perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125loki"/' ~/.odin/config/app.toml
 
 ### Add persistent peers
+Provided is a small list of peers, however more can be found the `peers.txt` file
 ```bash:
-PEERS = TBD
+PEERS="3c9f836af6e8b00e77ca5792d5a92e2fea8d3f20@116.202.169.136:26656,46fd2ff68ac8128ce04aed6584fa67b048c228ee@162.55.214.187:26766,9d16b1ce74a34b869d69ad5fe34eaca614a36ecd@35.241.238.207:26656,02e905f49e1b869f55ad010979931b542302a9e6@35.241.221.154:26656,4847c79f1601d24d3605278a0183d416a99aa093@34.140.252.7:26656,0165cd0d60549a37abb00b6acc8227a54609c648@34.79.179.216:26656"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.odin/config/config.toml
 ```
 
 ### Download genesis file
 ```bash:
-curl TBD > ~/.odin/config/genesis.json
+curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/final_genesis.json > ~/.odin/config/genesis.json
 ```
 
-Verify the hash `TBD`:
+Verify the hash `283af746fe979c937965f33faa79b2a84badbd136eec434e44d14d552c1e88e8`:
 ```
 jq -S -c -M ' ' ~/.odin/config/genesis.json | shasum -a 256
 ```
