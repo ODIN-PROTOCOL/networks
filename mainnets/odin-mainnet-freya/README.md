@@ -147,4 +147,7 @@ odind gentx "{{KEY_NAME}}" 10000000loki \
 
 
 ## Validator run instruction
-### TODO
+
+1. Clone the [repository](https://github.com/ODIN-PROTOCOL/networks/)
+2. Place files `app.toml`, `config.toml`, `node_key.json`, `priv_validator_key.json` from `~/.odin/config` to folder `networks/mainnets/odin-mainnet-freya/run-node-tools`.
+3. Run file `run.sh`.
