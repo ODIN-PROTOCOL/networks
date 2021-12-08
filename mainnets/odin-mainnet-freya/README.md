@@ -147,4 +147,103 @@ odind gentx "{{KEY_NAME}}" 10000000loki \
 
 
 ## Validator run instruction
-### TODO
+
+### Set minimum gas fees
+perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125loki"/' ~/.odin/config/app.toml
+
+### Add persistent peers
+```bash:
+PEERS = TBD
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.odin/config/config.toml
+```
+
+### Download genesis file
+```bash:
+curl TBD > ~/.odin/config/genesis.json
+```
+
+Verify the hash `TBD`:
+```
+jq -S -c -M ' ' ~/.odin/config/genesis.json | shasum -a 256
+```
+
+### Setup Unit/Daemon file
+
+```bash:
+# 1. create daemon file
+touch /etc/systemd/system/odin.service
+
+# 2. run:
+cat <<EOF >> /etc/systemd/system/odin.service
+[UNIT]
+Description=Odin daemon
+After=network-online.target
+
+[Service]
+User=<USER>
+ExecStart=/home/<USER>/go/bin/odind start
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# 3. reload the daemon
+systemctl daemon-reload
+
+# 4. enable service - this means the service will start up 
+# automatically after a system reboot
+systemctl enable odin.service
+
+# 5. start daemon
+systemctl start odin.service
+```
+
+In order to watch the service run, you can do the following:
+```
+journalctl -u odin.service -f
+```
+
+Congratulations! You now have a full node. Once the node is synced with the network, 
+you can then make your node a validator.
+
+
+### Create validator
+1. Transfer funds to your validator address. A minimum of 1 ODIN (1000000loki) is required to start a validator.
+
+2. Confirm your address has the funds.
+
+```
+odind q bank balances $(odind keys show -a <key-alias>)
+```
+
+3. Run the create-validator transaction
+**Note: 1,000,000 loki = 1 ODIN, so this validator will start with 1 ODIN**
+
+```bash:
+odind tx staking create-validator \ 
+--amount 1000000loki \ 
+--commission-max-change-rate "0.05" \ 
+--commission-max-rate "0.10" \ 
+--commission-rate "0.05" \ 
+--min-self-delegation "1" \ 
+--details "validators write bios too" \ 
+--pubkey $(odind tendermint show-validator) \ 
+--moniker $MONIKER_NAME \ 
+--chain-id $CHAIN_ID \ 
+--fees 2000loki \
+--from <key-name>
+```
+
+To ensure your validator is active, run:
+```
+odind q staking validators | grep moniker
+```
+
+### Backup critical files
+```bash:
+priv_validator_key.json
+node_key.json
+```
