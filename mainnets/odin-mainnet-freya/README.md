@@ -104,7 +104,7 @@ Check your key:
 odind keys show <key-name> -a
 ```
 
-## Validator run instruction
+## Validator Setup Instructions
 
 ### Set minimum gas fees
 perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125loki"/' ~/.odin/config/app.toml
