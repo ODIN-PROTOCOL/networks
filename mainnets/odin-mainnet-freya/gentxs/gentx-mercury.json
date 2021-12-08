@@ -1,0 +1,61 @@
+{
+  "body": {
+    "messages": [
+      {
+        "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+        "description": {
+          "moniker": "☉ Mercury",
+          "identity": "48CE867E6AB5ED72",
+          "website": "https://mercury-nodes.net",
+          "security_contact": "security@mercury-nodes.net",
+          "details": "May the stake be with you!"
+        },
+        "commission": {
+          "rate": "0.100000000000000000",
+          "max_rate": "0.200000000000000000",
+          "max_change_rate": "0.010000000000000000"
+        },
+        "min_self_delegation": "1",
+        "delegator_address": "odin1k9xkg2nfm0h85ew9lc8ut7sc5lcvyspkystrzu",
+        "validator_address": "odinvaloper1k9xkg2nfm0h85ew9lc8ut7sc5lcvyspkfdlatg",
+        "pubkey": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "A9fUF8+8QqxAj2usoO5p2xJ1uxVzacjg2WlXQe/w9Y2J"
+        },
+        "value": {
+          "denom": "loki",
+          "amount": "10000000"
+        }
+      }
+    ],
+    "memo": "7967890ae37db66307b1336896b37f99c1a10c74@65.108.71.225:26656",
+    "timeout_height": "0",
+    "extension_options": [],
+    "non_critical_extension_options": []
+  },
+  "auth_info": {
+    "signer_infos": [
+      {
+        "public_key": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "A6RtcSAWFNCC3D3pDEDI88enl8ITCFf6eDOOXgD6LPO0"
+        },
+        "mode_info": {
+          "single": {
+            "mode": "SIGN_MODE_DIRECT"
+          }
+        },
+        "sequence": "0"
+      }
+    ],
+    "fee": {
+      "amount": [],
+      "gas_limit": "200000",
+      "payer": "",
+      "granter": ""
+    }
+  },
+  "signatures": [
+    "rV+z9GsgFcx3kcCdTKsAMPbvwiMj2+dZpT0w3CkUg9s9BxXkfUs71b3Iz/QqZwbGN7Z12laikGaaBtbOsvmFTQ=="
+  ]
+}
