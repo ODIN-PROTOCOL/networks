@@ -1,20 +1,23 @@
 # Gentx Validator Final Steps
 
+# Mainnet begins at 2021-12-09T12:00:00.075067653Z
+
 ### Set minimum gas fees
 perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125loki"/' ~/.odin/config/app.toml
 
 ### Add persistent peers
+Provided is a small list of peers, however more can be found the `peers.txt` file
 ```bash:
-PEERS = TBD
+PEERS="3c9f836af6e8b00e77ca5792d5a92e2fea8d3f20@116.202.169.136:26656,46fd2ff68ac8128ce04aed6584fa67b048c228ee@162.55.214.187:26766,9d16b1ce74a34b869d69ad5fe34eaca614a36ecd@35.241.238.207:26656,02e905f49e1b869f55ad010979931b542302a9e6@35.241.221.154:26656,4847c79f1601d24d3605278a0183d416a99aa093@34.140.252.7:26656,0165cd0d60549a37abb00b6acc8227a54609c648@34.79.179.216:26656"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.odin/config/config.toml
 ```
 
 ### Download genesis file
 ```bash:
-curl TBD > ~/.odin/config/genesis.json
+curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/final_genesis.json > ~/.odin/config/genesis.json
 ```
 
-Verify the hash `TBD`:
+Verify the hash `283af746fe979c937965f33faa79b2a84badbd136eec434e44d14d552c1e88e8`:
 ```
 jq -S -c -M ' ' ~/.odin/config/genesis.json | shasum -a 256
 ```
@@ -55,6 +58,13 @@ systemctl start odin.service
 In order to watch the service run, you can do the following:
 ```
 journalctl -u odin.service -f
+```
+
+The expected output is as follows:
+```
+10:33PM INF Starting Node service impl=Node
+10:33PM INF Genesis time is in the future. Sleeping until then... genTime=2021-12-09T12:00:00Z
+10:33PM INF Starting pprof server laddr=localhost:6060
 ```
 
 ### Backup critical files
