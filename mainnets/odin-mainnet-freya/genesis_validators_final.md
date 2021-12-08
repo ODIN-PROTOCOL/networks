@@ -35,8 +35,8 @@ Description=Odin daemon
 After=network-online.target
 
 [Service]
-User=root
-ExecStart=/root/go/bin/odind start
+User=<USER>
+ExecStart=/home/<USER>/bin/odind start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096
