@@ -1,0 +1,61 @@
+{
+  "body": {
+    "messages": [
+      {
+        "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+        "description": {
+          "moniker": "Munay Network",
+          "identity": "8998F53B265AC5B6",
+          "website": "https://twitter.com/MunayNetwork",
+          "security_contact": "security@munay.network",
+          "details": "Helping Blockchains Tokenize the World."
+        },
+        "commission": {
+          "rate": "0.070000000000000000",
+          "max_rate": "0.100000000000000000",
+          "max_change_rate": "0.030000000000000000"
+        },
+        "min_self_delegation": "1",
+        "delegator_address": "odin1dtjflhhejdnw6frxqqwczpttt8jr3p7qyjdpxc",
+        "validator_address": "odinvaloper1dtjflhhejdnw6frxqqwczpttt8jr3p7qf0el0v",
+        "pubkey": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "Am78dC1OdGG1k03xMy6xNFves2el/12cxrFPwaPRTyyG"
+        },
+        "value": {
+          "denom": "loki",
+          "amount": "10000000"
+        }
+      }
+    ],
+    "memo": "96ffd98027f56763fb6a5037bb6bf350d7bdf174@10.0.2.15:26656",
+    "timeout_height": "0",
+    "extension_options": [],
+    "non_critical_extension_options": []
+  },
+  "auth_info": {
+    "signer_infos": [
+      {
+        "public_key": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "ApXnDpA6EOTsl9cCuNFCjaM1pv3uAXXcUaB9hfQLIXjz"
+        },
+        "mode_info": {
+          "single": {
+            "mode": "SIGN_MODE_DIRECT"
+          }
+        },
+        "sequence": "0"
+      }
+    ],
+    "fee": {
+      "amount": [],
+      "gas_limit": "200000",
+      "payer": "",
+      "granter": ""
+    }
+  },
+  "signatures": [
+    "lrNtlMTcRXmNrdtoYnuGMajekhvbXSJzjwkvsBmahslCPlk958JvIJGU2i7d+XjXe1Dvsvobd/+q7MnoyYSyIg=="
+  ]
+}
