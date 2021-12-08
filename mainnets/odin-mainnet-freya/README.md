@@ -107,7 +107,7 @@ odind keys show <key-name> -a
 
 ## Validator setup instructions for validators participating in the genesis
 
-### GenTx: Accepting now.
+### GenTx: >> NOW CLOSED <<.
 
 * [Install](#installation-steps) odin core application
 * Initialize node
