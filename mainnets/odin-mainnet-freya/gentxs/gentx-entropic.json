@@ -1,0 +1,67 @@
+{
+   "body":{
+      "messages":[
+         {
+            "@type":"/cosmos.staking.v1beta1.MsgCreateValidator",
+            "description":{
+               "moniker":"entropic.nodes",
+               "identity":"",
+               "website":"",
+               "security_contact":"",
+               "details":""
+            },
+            "commission":{
+               "rate":"0.050000000000000000",
+               "max_rate":"0.100000000000000000",
+               "max_change_rate":"0.050000000000000000"
+            },
+            "min_self_delegation":"1",
+            "delegator_address":"odin1hl0lduu35a9f6awf3nr4uqk7u4z6yhj6acutg0",
+            "validator_address":"odinvaloper1hl0lduu35a9f6awf3nr4uqk7u4z6yhj6s9g4pm",
+            "pubkey":{
+               "@type":"/cosmos.crypto.secp256k1.PubKey",
+               "key":"A4NVyuosjrVQVqfBtNE6vZIF5p3BRHrXAvfNieWgt5fV"
+            },
+            "value":{
+               "denom":"loki",
+               "amount":"10000000"
+            }
+         }
+      ],
+      "memo":"605ca25bb09931e0dd9d0d57ccde9b0a2b1620f5@195.88.87.88:26656",
+      "timeout_height":"0",
+      "extension_options":[
+         
+      ],
+      "non_critical_extension_options":[
+         
+      ]
+   },
+   "auth_info":{
+      "signer_infos":[
+         {
+            "public_key":{
+               "@type":"/cosmos.crypto.secp256k1.PubKey",
+               "key":"AxblejZ3TqCR5VBfesAJyDSM+6GB/ODpEW6X6PeUD/sY"
+            },
+            "mode_info":{
+               "single":{
+                  "mode":"SIGN_MODE_DIRECT"
+               }
+            },
+            "sequence":"0"
+         }
+      ],
+      "fee":{
+         "amount":[
+            
+         ],
+         "gas_limit":"200000",
+         "payer":"",
+         "granter":""
+      }
+   },
+   "signatures":[
+      "DZgyxv0DVF7NvHYU8OvmF7j66ZlIKXSszaUtc0Dasn5R4hzSCzsfNIZFHx4zIYkVVri+rUXWaK4DEasDW1inpg=="
+   ]
+}
