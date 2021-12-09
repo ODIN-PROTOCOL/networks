@@ -18,6 +18,7 @@ services:
       - ./genesis.json:/root/.odin/config/genesis.json
       - ./app.toml:/root/.odin/config/app.toml
       - ./config.toml:/root/.odin/config/config.toml
+      - ./data:/root/.odin/data
 
 volumes:
   vol:
