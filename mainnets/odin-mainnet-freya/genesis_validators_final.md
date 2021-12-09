@@ -38,7 +38,7 @@ After=network-online.target
 
 [Service]
 User=<USER>
-ExecStart=/home/<USER>/bin/odind start
+ExecStart=/home/<USER>/go/bin/odind start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096
