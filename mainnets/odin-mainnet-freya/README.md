@@ -134,7 +134,7 @@ touch /etc/systemd/system/odin.service
 
 # 2. run:
 cat <<EOF >> /etc/systemd/system/odin.service
-[UNIT]
+[Unit]
 Description=Odin daemon
 After=network-online.target
 

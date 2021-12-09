@@ -3,7 +3,9 @@
 # Mainnet begins at 2021-12-09T12:00:00.075067653Z
 
 ### Set minimum gas fees
+```
 perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125loki"/' ~/.odin/config/app.toml
+```
 
 ### Add persistent peers
 Provided is a small list of peers, however more can be found the `peers.txt` file
@@ -30,13 +32,13 @@ touch /etc/systemd/system/odin.service
 
 # 2. run:
 cat <<EOF >> /etc/systemd/system/odin.service
-[UNIT]
+[Unit]
 Description=Odin daemon
 After=network-online.target
 
 [Service]
 User=<USER>
-ExecStart=/home/<USER>/bin/odind start
+ExecStart=/home/<USER>/go/bin/odind start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096
