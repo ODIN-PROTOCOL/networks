@@ -1,2 +1,2 @@
 f283528c5781680267509208f9ae993b28ee7512@odin-seed.blockpane.com:26656
-631d63d459c6d8bc5bc4338b60b2c87f1370503e@odin-seed-01.mercury-nodes.net:29536
+4529fc24a87ff5ab105970f425ced7a6c79f0b8f@odin-seed-01.mercury-nodes.net:29536
