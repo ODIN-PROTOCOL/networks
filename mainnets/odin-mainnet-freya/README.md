@@ -121,7 +121,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.odin/
 curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/final_genesis.json > ~/.odin/config/genesis.json
 ```
 
-Verify the hash `283af746fe979c937965f33faa79b2a84badbd136eec434e44d14d552c1e88e8`:
+Verify the hash `29d248a3852038b06879031d557e2cbc1e17f6fdb1c9ac00e3c52ea9ee03ed8a`:
 ```
 jq -S -c -M ' ' ~/.odin/config/genesis.json | shasum -a 256
 ```
