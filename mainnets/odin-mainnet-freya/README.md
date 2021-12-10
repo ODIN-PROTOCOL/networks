@@ -79,6 +79,12 @@ odind version
 ```
 Output should be: `v0.1.0`
 
+### Init
+This step is essential to init a `secp256k1` (required) key instead of `ed25519` (default)
+```bash:
+odind init "$MONIKER_NAME" --chain-id $CHAIN_ID
+```
+
 ### Generate keys
 
 ```bash:
