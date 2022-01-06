@@ -65,7 +65,7 @@ git clone https://github.com/GeoDB-Limited/odin-core.git
 ```shell
 cd odin-core
 git fetch --tags
-git checkout v0.1.0
+git checkout v0.2.0
 ```
 #### 2. Install CLI
 ```shell
@@ -77,7 +77,13 @@ To confirm that the installation was successful, you can run:
 ```bash:
 odind version
 ```
-Output should be: `v0.1.0`
+Output should be: `v0.2.0`
+
+### Init
+This step is essential to init a `secp256k1` (required) key instead of `ed25519` (default)
+```bash:
+odind init "$MONIKER_NAME" --chain-id $CHAIN_ID
+```
 
 ### Generate keys
 
