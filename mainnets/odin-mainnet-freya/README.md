@@ -1,7 +1,5 @@
 # ODIN MAINNET FREYA
 
-## First part is to submit the gentx. >> NOW CLOSED <<
-
 ## Hardware Requirements
 * **Minimal**
     * 4 GB RAM
@@ -16,6 +14,7 @@
 
 * **Recommended**
     * Linux(x86_64)
+
 
 ## Installation Steps
 #### 1. Basic Packages
@@ -50,13 +49,11 @@ go version
 
 Output should be: `go version go1.17.3 linux/amd64`
 
-
+<a id="install-odind"></a>
 ### Install Odind from source
 
 #### 1. Clone repository
 
->Prerequisite: git. [ref](https://github.com/git/git)
->Optional requirement: GNU make. [ref](https://www.gnu.org/software/make/manual/html_node/index.html)
 * Clone git repository
 ```shell
 git clone https://github.com/GeoDB-Limited/odin-core.git
@@ -65,7 +62,7 @@ git clone https://github.com/GeoDB-Limited/odin-core.git
 ```shell
 cd odin-core
 git fetch --tags
-git checkout v0.2.0
+git checkout v0.3.0-x.1
 ```
 #### 2. Install CLI
 ```shell
@@ -77,7 +74,9 @@ To confirm that the installation was successful, you can run:
 ```bash:
 odind version
 ```
-Output should be: `v0.2.0`
+Output should be: `v0.3.0-x.1`
+
+## Instruction for new validators
 
 ### Init
 This step is essential to init a `secp256k1` (required) key instead of `ed25519` (default)
@@ -113,23 +112,20 @@ odind keys show <key-name> -a
 ## Validator Setup Instructions
 
 ### Set minimum gas fees
+```bash:
 perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125loki"/' ~/.odin/config/app.toml
+```
 
 ### Add persistent peers
 Provided is a small list of peers, however more can be found the `peers.txt` file
 ```bash:
-PEERS="3c9f836af6e8b00e77ca5792d5a92e2fea8d3f20@116.202.169.136:26656,46fd2ff68ac8128ce04aed6584fa67b048c228ee@162.55.214.187:26766,9d16b1ce74a34b869d69ad5fe34eaca614a36ecd@35.241.238.207:26656,02e905f49e1b869f55ad010979931b542302a9e6@35.241.221.154:26656,aa738c14df142b0119f90bcadfa1f747d5e32b25@130.211.208.2:26656,fa9bb933a7cd51675b903a4565d0c59379500be7@63.209.32.254:26656,0165cd0d60549a37abb00b6acc8227a54609c648@34.79.179.216:26656"
+PEERS="9d16b1ce74a34b869d69ad5fe34eaca614a36ecd@35.241.238.207:26656,02e905f49e1b869f55ad010979931b542302a9e6@35.241.221.154:26656,4847c79f1601d24d3605278a0183d416a99aa093@34.140.252.7:26656,0165cd0d60549a37abb00b6acc8227a54609c648@34.79.179.216:26656"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.odin/config/config.toml
 ```
 
-### Download genesis file
+### Download new genesis file
 ```bash:
-curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/final_genesis.json > ~/.odin/config/genesis.json
-```
-
-Verify the hash `283af746fe979c937965f33faa79b2a84badbd136eec434e44d14d552c1e88e8`:
-```
-jq -S -c -M ' ' ~/.odin/config/genesis.json | shasum -a 256
+curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/genesis.json > ~/.odin/config/genesis.json
 ```
 
 ### Setup Unit/Daemon file
@@ -174,7 +170,6 @@ journalctl -u odin.service -f
 Congratulations! You now have a full node. Once the node is synced with the network, 
 you can then make your node a validator.
 
-
 ### Create validator
 1. Transfer funds to your validator address. A minimum of 1 ODIN (1000000loki) is required to start a validator.
 
@@ -212,3 +207,32 @@ odind q staking validators | grep moniker
 priv_validator_key.json
 node_key.json
 ```
+
+## Instruction for old validators
+
+### Stop node
+```bash:
+systemctl stop odin.service
+```
+
+### Install latest Odind from source
+
+[Install latest Odind](#install-odind)
+
+### Download genesis file
+```bash:
+curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/genesis.json > ~/.odin/config/genesis.json
+```
+
+### Clean old state
+
+```bash:
+odind unsafe-reset-all
+```
+
+### Rerun node
+```bash:
+systemctl daemon-reload
+systemctl start odin.service
+```
+
