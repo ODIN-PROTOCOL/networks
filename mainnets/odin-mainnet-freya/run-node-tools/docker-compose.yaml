@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   validator:
-    image: odinprotocol/core:mainnet-freya
+    image: odinprotocol/core:v0.3.0
     container_name: validator
     command: odind start --rpc.laddr tcp://0.0.0.0:26657
     ports:
