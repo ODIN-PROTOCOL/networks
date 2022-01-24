@@ -1,0 +1,45 @@
+# ODIN MAINNET FREYA
+## Update version
+
+### 1) Stop node
+```bash:
+systemctl stop odin.service
+```
+
+### 2) Install latest Odind from source
+
+#### 1. Clone repository
+
+* Clone git repository
+```shell
+git clone https://github.com/GeoDB-Limited/odin-core.git
+```
+* Checkout latest tag
+```shell
+cd odin-core
+git fetch --tags
+git checkout v0.3.1
+```
+#### 2. Install CLI
+```shell
+make all
+```
+	
+To confirm that the installation was successful, you can run:
+
+```bash:
+odind version
+```
+Output should be: `v0.3.1`
+
+### 3) Clean old state
+
+```bash:
+odind unsafe-reset-all
+```
+
+### 4) Rerun node
+```bash:
+systemctl daemon-reload
+systemctl start odin.service
+```
