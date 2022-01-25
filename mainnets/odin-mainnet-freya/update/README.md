@@ -8,19 +8,24 @@ systemctl stop odin.service
 
 ### 2) Install latest Odind from source
 
-#### 1. Clone repository
+#### 1. Pull changes
 
-* Clone git repository
-```shell
-git clone https://github.com/GeoDB-Limited/odin-core.git
-```
-* Checkout latest tag
+* Navigate to current repository folder.
 ```shell
 cd odin-core
+```
+
+* Pull the latest version of the repository
+```shell
+git pull
+```
+
+* Checkout latest tag
+```shell
 git fetch --tags
 git checkout v0.3.1
 ```
-#### 2. Install CLI
+#### 2. Build the new version of CLI
 ```shell
 make all
 ```
