@@ -48,7 +48,8 @@ odind unsafe-reset-all
 cd ~/
 wget https://share.blockpane.com/odin-mainnet-freya_20220126_default_kv_v0.3.1.tar.xz
 xz -d odin-mainnet-freya_20220126_default_kv_v0.3.1.tar.xz
-tar xvf odin-mainnet-freya_20220126_default_kv_v0.3.1.tar .odin/data/
+mv odin-mainnet-freya_20220126_default_kv_v0.3.1.tar .odin
+tar xvf odin-mainnet-freya_20220126_default_kv_v0.3.1.tar
 ```
 
 ### 4) Rerun node
