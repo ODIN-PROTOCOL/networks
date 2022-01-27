@@ -50,6 +50,7 @@ wget https://share.blockpane.com/odin-mainnet-freya_20220126_default_kv_v0.3.1.t
 xz -d odin-mainnet-freya_20220126_default_kv_v0.3.1.tar.xz
 mv odin-mainnet-freya_20220126_default_kv_v0.3.1.tar .odin
 tar xvf odin-mainnet-freya_20220126_default_kv_v0.3.1.tar
+rm odin-mainnet-freya_20220126_default_kv_v0.3.1.tar
 ```
 
 ### 4) Rerun node
