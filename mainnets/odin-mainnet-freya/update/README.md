@@ -43,7 +43,7 @@ Output should be: `v0.3.1`
 odind unsafe-reset-all
 ```
 
-# Download and extract statesync
+# Download and extract snapshot
 ```bash:
 cd ~/
 wget https://share.blockpane.com/odin-mainnet-freya_20220126_default_kv_v0.3.1.tar.xz
