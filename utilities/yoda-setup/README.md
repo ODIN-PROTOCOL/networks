@@ -103,6 +103,8 @@ echo "y" | odind tx oracle activate --from supplier --chain-id odin-mainnet-frey
 
 ## Run yoda
 
+Run commands one by one
+
 ```bash:
 # 1. create daemon file
 touch /etc/systemd/system/yoda.service
