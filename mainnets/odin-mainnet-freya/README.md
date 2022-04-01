@@ -62,7 +62,7 @@ git clone https://github.com/GeoDB-Limited/odin-core.git
 ```shell
 cd odin-core
 git fetch --tags
-git checkout v0.3.0
+git checkout v0.4.0
 ```
 #### 2. Install CLI
 ```shell
@@ -74,7 +74,7 @@ To confirm that the installation was successful, you can run:
 ```bash:
 odind version
 ```
-Output should be: `v0.3.0`
+Output should be: `v0.4.0`
 
 ## Instruction for new validators
 

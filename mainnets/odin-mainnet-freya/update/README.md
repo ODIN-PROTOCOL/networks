@@ -23,7 +23,7 @@ git pull
 * Checkout latest tag
 ```shell
 git fetch --tags
-git checkout v0.3.1
+git checkout v0.4.0
 ```
 #### 2. Build the new version of CLI
 ```shell
@@ -35,15 +35,9 @@ To confirm that the installation was successful, you can run:
 ```bash:
 odind version
 ```
-Output should be: `v0.3.1`
+Output should be: `v0.4.0`
 
-### 3) Clean old state
-
-```bash:
-odind unsafe-reset-all
-```
-
-### 4) Rerun node
+### 3) Rerun node
 ```bash:
 systemctl daemon-reload
 systemctl start odin.service
