@@ -55,7 +55,7 @@ Output should be: `go version go1.17.3 linux/amd64`
 >Optional requirement: GNU make. [ref](https://www.gnu.org/software/make/manual/html_node/index.html)
 * Clone git repository
 ```shell
-git clone https://github.com/GeoDB-Limited/odin-core.git
+git clone https://github.com/ODIN-PROTOCOL/odin-core.git
 ```
 * Checkout latest tag
 ```shell
