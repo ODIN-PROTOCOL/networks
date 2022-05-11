@@ -112,7 +112,7 @@ cp /home/<USER>/go/bin/odind /home/<USER>/.odin/cosmovisor/upgrades/v0.5.3/bin/o
 
 #### 6. Setup Unit/Daemon file
 
-```bash:
+```bash
 # 1. create daemon file
 touch /etc/systemd/system/cosmovisor.service
 
@@ -155,6 +155,14 @@ systemctl start cosmovisor.service
 In order to watch the service run, you can do the following:
 ```
 journalctl -u cosmovisor.service -f
+```
+
+#### 7*. Restart yoda
+
+Only for oracle validators
+
+```bash
+systemctl restart yoda.service
 ```
 
 
