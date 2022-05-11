@@ -1,8 +1,8 @@
-# INSTRUCTION FOR UPDATE TO LATEST VERSION
+# INSTRUCTION FOR UPDATE YOUR NODE TO THE LATEST VERSION
 
-For update to latest version correctly and safety, you should setup 
+For update to the latest version correctly and safety, you should setup 
 [cosmovisor](https://docs.cosmos.network/master/run-node/cosmovisor.html) - 
-process manager that monitor governance proposals for software updates and switch binary to the newest one.
+a process manager that monitors governance proposals for software updates and switches the binary to the newest one.
 
 
 ## COSMOVISOR INSTALLATION STEPS
