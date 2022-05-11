@@ -83,6 +83,54 @@ This step is essential to init a `secp256k1` (required) key instead of `ed25519`
 ```bash:
 odind init "$MONIKER_NAME" --chain-id $CHAIN_ID
 ```
+******Optional section to replace the default systemd setup otherwise documented here.
+#### (Optional: Use Cosmovisor for automatic binary version handling
+#### these instructions use a slightly different systemd service file setup, and will need some additional structure to the binary home folder...
+```
+cd ~/odin-core
+mkdir -p ~/.odin/cosmovisor/genesis/bin
+mkdir -p ~/.odin/cosmovisor/upgrades/v0.3.1/bin
+mkdir -p ~/.odin/cosmovisor/upgrades/v0.3.3/bin
+cp ~/go/bin/* ~/.odin/cosmovisor/Genesis/bin/
+got checkout v0.3.1
+make all
+cp ~/go/bin* ~/.odin/cosmovisor/upgrades/v0.3.1/bin
+git checkout v0.3.3
+make all
+cp ~/go/bin/* ~/.odin/cosmovisor/upgrades/v0.3.3/bin
+wget  https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.1.0/cosmovisor-v1.1.0-linux-amd64.tar.gz ; tar xvfz  cosmovisor-v1.1.0-linux-amd64.tar.gz -C ~/go/bin/
+```
+#### Now we will create the appropriate service file.  This file assumes creation of non-root user 'odin'.  The path and user can be substituted as root if that is preferred.
+```
+cat <<EOF >> odind.service
+[Unit]
+Description=odin daemon
+After=network-online.target
+
+[Service]
+User=odin
+ExecStart=/home/odin/go/bin/cosmovisor run start
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=4096
+
+Environment=DAEMON_HOME="/home/odin/.odin/"
+Environment=DAEMON_RESTART_AFTER_UPGRADE=true
+Environment=DAEMON_ALLOW_DOWNLOAD_BINARIES=false
+Environment=DAEMON_NAME=odind
+Environment=UNSAFE_SKIP_BACKUP=true
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+sudo cp odind.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable odind
+sudo systemctl start odind
+``` 
+******** End of optional Cosmovisor config
+
 
 ### Generate keys
 
