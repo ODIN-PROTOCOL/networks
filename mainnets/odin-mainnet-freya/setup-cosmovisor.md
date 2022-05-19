@@ -80,11 +80,11 @@ Cosmovisor folder layout:
 
 Create folders .odin/cosmovisor/genesis/bin.
 
-Create folders .odin/cosmovisor/upgrades/v0.5.3/bin.
+Create folders .odin/cosmovisor/upgrades/v0.5.5/bin.
 ```bash
 mkdir -p .odin/cosmovisor/genesis/bin
 
-mkdir -p .odin/cosmovisor/upgrades/v0.5.3/bin
+mkdir -p .odin/cosmovisor/upgrades/v0.5.5/bin
 ```
 
 #### 5. Build new binary odind 
@@ -100,7 +100,7 @@ git clone https://github.com/ODIN-PROTOCOL/odin-core.git
 
 cd odin-core
 git fetch --tags
-git checkout v0.5.3
+git checkout v0.5.5
 
 make all
 ```
