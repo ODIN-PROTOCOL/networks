@@ -107,7 +107,7 @@ make all
 
 Copy new binary to cosmovisor folder:
 ```bash
-cp /home/<USER>/go/bin/odind /home/<USER>/.odin/cosmovisor/upgrades/v0.5.3/bin/odind
+cp /home/<USER>/go/bin/odind /home/<USER>/.odin/cosmovisor/upgrades/v0.5.5/bin/odind
 ```
 
 #### 6. Setup Unit/Daemon file
