@@ -37,7 +37,7 @@ source ~/.profile
 go version
 ```
 
-Output should be: `go version go1.17.3 linux/amd64`
+Output should be: `go version go1.18.1 linux/amd64`
 
 #### 3. Install cosmovisor from source
 
