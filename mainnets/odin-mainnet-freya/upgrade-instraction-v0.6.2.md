@@ -40,6 +40,7 @@ git clone https://github.com/ODIN-PROTOCOL/odin-core.git
 
 cd odin-core
 git fetch --tags
+git pull
 git checkout v0.6.2
 
 make all
