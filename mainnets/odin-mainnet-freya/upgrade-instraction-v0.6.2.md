@@ -1,6 +1,6 @@
 # INSTRUCTION FOR UPDATE YOUR NODE TO VERSION 0.6.2
 
-#### 1. Update go version to 1.8
+#### 1. Update go version to 1.19.2
 Skip this step, if `go` already updated
 
 Uninstall oll version:
@@ -10,8 +10,8 @@ sudo rm -rf /usr/local/go
 
 Install new version:
 ```bash:
-wget https://golang.org/dl/go1.18.1.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.19.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz
 
 cat <<EOF >> ~/.profile
 export GOROOT=/usr/local/go
@@ -23,7 +23,7 @@ source ~/.profile
 go version
 ```
 
-Output should be: `go version go1.18.1 linux/amd64`
+Output should be: `go version go1.19.2 linux/amd64`
 
 #### 2. Create folders for cosmovisor
 
