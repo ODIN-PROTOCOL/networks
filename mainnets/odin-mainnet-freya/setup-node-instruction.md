@@ -106,8 +106,7 @@ apt-get install lz4
 
 Download the snapshot from https://imperator.co/services
 ```bash
-SNAP_NAME=$(curl -s https://api-minio-sud.imperator.co/snapshots/odin/odin_6980158.tar.lz4 | egrep -o ">odin.*tar.lz4" | tail -1 | tr -d ">"); \
-wget -O - https://mercury-nodes.net/odin-snapshot/${SNAP_NAME} | lz4 -d | tar xf -
+wget -O - https://api-minio-sud.imperator.co/snapshots/odin/odin_6980158.tar.lz4 | lz4 -d | tar xf -
 ```
 #### 7. Setup Unit/Daemon file
 
