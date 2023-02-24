@@ -85,7 +85,7 @@ git clone https://github.com/ODIN-PROTOCOL/odin-core.git
 
 cd odin-core
 git fetch --tags
-git checkout v0.6.0
+git checkout v0.6.2
 
 make all
 
