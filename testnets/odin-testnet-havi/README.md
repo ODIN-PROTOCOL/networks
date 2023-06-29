@@ -63,7 +63,7 @@ cd odin-core
 git fetch --tags
 git checkout v0.6.2
 ```
-#### 2. Install CLI
+#### 2. Install ODIN
 ```shell
 make all
 ```
@@ -74,6 +74,12 @@ To confirm that the installation was successful, you can run:
 odind version
 ```
 Output should be: `v0.6.2`
+
+##### Init node 
+
+```bash
+odind init <validator-moniker>
+```
 
 #### 3. Install Cosmovisor
 
