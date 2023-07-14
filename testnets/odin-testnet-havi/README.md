@@ -247,4 +247,4 @@ node_key.json
 ```
 
 ### Data backup
-You can download full data backup [here]([https://www.example.com](https://storage.googleapis.com/odin-testnet-backup/data-backup-2023-6-29.tar.gz)https://storage.googleapis.com/odin-testnet-backup/data-backup-2023-6-29.tar.gz)
+You can download full data backup [here](https://storage.googleapis.com/odin-testnet-backup/data-backup-2023-6-29.tar.gz)
