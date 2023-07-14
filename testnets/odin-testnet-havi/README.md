@@ -157,7 +157,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.odin/
 
 ### Download genesis file
 ```bash
-curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/testnets/odin-testnet-havi/genesis.json > ~/.odin/config/genesis.json
+curl https://storage.googleapis.com/odin-testnet-backup/testnet-genesis.json > ~/.odin/config/genesis.json
 ```
 
 ### Setup Unit/Daemon file
@@ -245,3 +245,6 @@ odind q staking validators | grep moniker
 priv_validator_key.json
 node_key.json
 ```
+
+### Data backup
+You can download full data backup [here]([https://www.example.com](https://storage.googleapis.com/odin-testnet-backup/data-backup-2023-6-29.tar.gz)https://storage.googleapis.com/odin-testnet-backup/data-backup-2023-6-29.tar.gz)
