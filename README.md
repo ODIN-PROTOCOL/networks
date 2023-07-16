@@ -1,7 +1,7 @@
 # Odin Networks Details
 
 * **Join odin's test network** 
-  * [TestNet](https://github.com/ODIN-PROTOCOL/networks/tree/master/testnets/testnet-heimdall)
+  * [TestNet](https://github.com/ODIN-PROTOCOL/networks/tree/master/testnets/odin-testnet-havi)
 
 * **Main Net** 
   * [MainNet](https://github.com/ODIN-PROTOCOL/networks/tree/master/mainnets/odin-mainnet-freya)
