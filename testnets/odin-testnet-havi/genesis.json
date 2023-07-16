@@ -1,6 +1,6 @@
 {
-  "genesis_time": "2021-12-09T12:00:00.075067653Z",
-  "chain_id": "odin-testnet-havi",
+  "genesis_time": "2022-07-14T20:00:00.075067653Z",
+  "chain_id": "odin-testnet-havi-1",
   "initial_height": "1",
   "consensus_params": {
     "block": {
@@ -277,7 +277,7 @@
             }
           },
           "signatures": [
-            "/KqxwJT36+pJsgd9cWTEGKrFFDDytypxfr8n/z5w60VrRK099n4Wt/Ta3irryXtY88mlczsNtseoqUuznel0og=="
+            "Q6uIuY9KZBhay1kQE7Afd6fA/sh/DzL/UPhc8w3NIDZaA5LEyCOwaKdNWU65ITx0LcIVkWPVJOd+ub7x9NyvUw=="
           ]
         },
         {
@@ -338,7 +338,7 @@
             }
           },
           "signatures": [
-            "a5aJm6epu0+bRtiPJRQX7bkIX+RvyiXdAHAXXPT2eJMYaV1D9b/qBpOx+i/+qQc0MNJnRqpEvb0zTCs5kk48yg=="
+            "3kuiz0qlpeMkrS6ZeGpVEkI/Wso9LhZDTiu5kgPidUM/PInfYwa7P7O8JwYv171SIp6+RCgTZy+fjDKyFdijQQ=="
           ]
         },
         {
@@ -399,7 +399,7 @@
             }
           },
           "signatures": [
-            "esKA6L1RowxlkbTS0dOauvSSkGVSANd1gkbuY2JtFwRDCCXUsXE5/Y4cwh/huxEfqWgWs+1DeIULsyW8Lu9vvA=="
+            "aYBzeqChSAMEwBaeD5V8viYChQbJi2GC1XT/LIdLuuJZ9x2ocsuFUFDIhGD93GvEAroSO8ejYMEi+sdf30y76Q=="
           ]
         },
         {
@@ -460,7 +460,7 @@
             }
           },
           "signatures": [
-            "2RpzDAhd+oE2F+gh3rEdkbuKTQsNwmnsHwFUrXAQSxkF/PBqQqAneoawu0iwR/W/dbkNeeu7Thm6SYW1kWK9Hw=="
+            "7VUxXuTaC9m0ub5GOMY3uY3+vCzjig6hvcOqJGPn11YhMRApTXGsKve8200yclAioDi9v0ccTpw0gHhVeVaK/Q=="
           ]
         }
       ]
@@ -480,7 +480,7 @@
         "max_deposit_period": "120m"
       },
       "voting_params": {
-        "voting_period": "120m"
+        "voting_period": "30m"
       },
       "tally_params": {
         "quorum": "0.090000000000000000",
@@ -524,7 +524,8 @@
     "mint": {
       "minter": {
         "inflation": "0.130000000000000000",
-        "annual_provisions": "0.000100000000000000"
+        "annual_provisions": "0.000100000000000000",
+        "current_mint_volume": []
       },
       "params": {
         "integration_addresses": {
@@ -546,7 +547,10 @@
         ],
         "eligible_accounts_pool": [
           "odin1ynyej47qe84tlkgwycc6e0849m47d75gq0mjhe"
-        ]
+        ],
+        "max_allowed_mint_volume": [],
+        "allowed_mint_denoms": [],
+        "allowed_minter": []
       },
       "mint_pool": {
         "treasury_pool": [
@@ -625,12 +629,48 @@
       "exported": false
     },
     "transfer": {
-      "port_id": "odin_transfer_test",
+      "port_id": "transfer",
       "denom_traces": [],
       "params": {
         "send_enabled": true,
         "receive_enabled": true
       }
+    },
+    "interchainaccounts": {
+      "controller_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "ports": [],
+        "params": {
+          "controller_enabled": true
+        }
+      },
+      "host_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "port": "icahost",
+        "params": {
+          "host_enabled": true,
+          "allow_messages": []
+        }
+      }
+    },
+    "bech32ibc": {
+      "nativeHRP": "loki",
+      "hrpIBCRecords": []
+    },
+    "wasm": {
+      "params": {
+        "code_upload_access": {
+          "permission": "Everybody",
+          "address": ""
+        },
+        "instantiate_default_permission": "Everybody"
+      },
+      "codes": [],
+      "contracts": [],
+      "sequences": [],
+      "gen_msgs": []
     },
     "upgrade": {}
   }

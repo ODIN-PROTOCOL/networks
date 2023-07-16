@@ -1,7 +1,7 @@
 ## Hardware Requirements
 * **Minimal**
     * 4 GB RAM
-    * 100 GB SSD
+    * 200 GB SSD
     * 3.2 x4 GHz CPU
 * **Recommended**
     * 8 GB RAM
@@ -27,8 +27,8 @@ Follow the instructions [here](https://golang.org/doc/install) to install Go.
 
 Alternatively, for Ubuntu LTS, you can do:
 ```bash:
-wget https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.18.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.18.3.linux-amd64.tar.gz
 ```
 
 Unless you want to configure in a non standard way, then set these in the `.profile` in the user's home (i.e. `~/`) folder.
@@ -61,9 +61,9 @@ git clone https://github.com/ODIN-PROTOCOL/odin-core.git
 ```shell
 cd odin-core
 git fetch --tags
-git checkout v0.3.0-x.1
+git checkout v0.6.2
 ```
-#### 2. Install CLI
+#### 2. Install ODIN
 ```shell
 make all
 ```
@@ -73,11 +73,52 @@ To confirm that the installation was successful, you can run:
 ```bash:
 odind version
 ```
-Output should be: `v0.3.0-x.1`
+Output should be: `v0.6.2`
+
+##### Init node 
+
+```bash
+odind init <validator-moniker>
+```
+
+#### 3. Install Cosmovisor
+
+##### Clone git repo:
+```bash
+git clone https://github.com/cosmos/cosmos-sdk.git
+cd cosmos-sdk
+git checkout cosmovisor/v1.3.0
+make cosmovisor
+```
+
+##### Move cosmovisor to GOPATH:
+```bash
+cp cosmovisor/cosmovisor ~/go/bin/cosmovisor
+```
+
+##### To confirm that the installation was successful, you can run:
+
+```bash
+cosmovisor version
+```
+Output should be: `v1.3.0`
+
+##### Set environment variables
+
+```bash
+export DAEMON_HOME=/home/<USER>/.odin
+export DAEMON_NAME=odind
+```
+
+##### Init cosmovisor
+
+```bash
+cosmovisor init ~/go/bin/odind
+```
 
 ### Generate keys
 
-```bash:
+```bash
 # To create new keypair - make sure you save the mnemonics!
 odind keys add <key-name> 
 ```
@@ -103,38 +144,45 @@ odind keys show <key-name> -a
 ## Validator Setup Instructions
 
 ### Set minimum gas fees
+```bash
 perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125loki"/' ~/.odin/config/app.toml
+```
 
 ### Add persistent peers
 Provided is a small list of peers, however more can be found the `peers.txt` file
-```bash:
-PEERS="492a4e30c10194e1d8f6fa194ba3f63b1aa73484@35.195.4.110:26656,417c2df701780c7f8751bc4a298411374082ef9e@34.78.138.110:26656,ea43cac04a556d01050a09a5699c3ba272a91116@34.78.239.23:26656,4edb332575e5108b131f0a7c0d9ac237569634ad@34.77.171.169:26656"
+```bash
+PEERS="4edb332575e5108b131f0a7c0d9ac237569634ad@35.195.4.110:26656,417c2df701780c7f8751bc4a298411374082ef9e@34.78.138.110:26656"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.odin/config/config.toml
 ```
 
 ### Download genesis file
-```bash:
-curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/testnets/odin-testnet-havi/genesis.json > ~/.odin/config/genesis.json
+```bash
+curl https://storage.googleapis.com/odin-testnet-backup/testnet-genesis.json > ~/.odin/config/genesis.json
 ```
 
 ### Setup Unit/Daemon file
 
-```bash:
+```bash
 # 1. create daemon file
-touch /etc/systemd/system/odin.service
+touch /etc/systemd/system/cosmovisor.service
 
 # 2. run:
-cat <<EOF >> /etc/systemd/system/odin.service
+cat <<EOF >> /etc/systemd/system/cosmovisor.service
 [Unit]
-Description=Odin daemon
+Description=Odin Cosmovisor Daemon
 After=network-online.target
 
 [Service]
 User=<USER>
-ExecStart=/home/<USER>/go/bin/odind start
+ExecStart=/home/<USER>/go/bin/cosmovisor run start
 Restart=on-failure
 RestartSec=3
-LimitNOFILE=4096
+LimitNOFILE=infinity
+
+Environment="DAEMON_HOME=/home/<USER>/.odin"
+Environment="DAEMON_NAME=odind"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
+Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 
 [Install]
 WantedBy=multi-user.target
@@ -145,15 +193,15 @@ systemctl daemon-reload
 
 # 4. enable service - this means the service will start up 
 # automatically after a system reboot
-systemctl enable odin.service
+systemctl enable cosmovisor.service
 
 # 5. start daemon
-systemctl start odin.service
+systemctl start cosmovisor.service
 ```
 
 In order to watch the service run, you can do the following:
-```
-journalctl -u odin.service -f
+```bash
+journalctl -u cosmovisor.service -f
 ```
 
 Congratulations! You now have a full node. Once the node is synced with the network, 
@@ -165,14 +213,14 @@ you can then make your node a validator.
 
 2. Confirm your address has the funds.
 
-```
+```bash
 odind q bank balances $(odind keys show -a <key-alias>)
 ```
 
 3. Run the create-validator transaction
 **Note: 1,000,000 loki = 1 ODIN, so this validator will start with 1 ODIN**
 
-```bash:
+```bash
 odind tx staking create-validator \ 
 --amount 1000000loki \ 
 --commission-max-change-rate "0.05" \ 
@@ -188,12 +236,15 @@ odind tx staking create-validator \
 ```
 
 To ensure your validator is active, run:
-```
+```bash
 odind q staking validators | grep moniker
 ```
 
 ### Backup critical files
-```bash:
+```bash
 priv_validator_key.json
 node_key.json
 ```
+
+### Data backup
+You can download full data backup [here](https://storage.googleapis.com/odin-testnet-backup/data-backup-2023-6-29.tar.gz)
