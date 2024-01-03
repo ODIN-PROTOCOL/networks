@@ -1,0 +1,47 @@
+version: "3.5"
+
+services:
+  validator:
+    build: ./cosmovisor
+    image: geodbodinprotocol/cosmovisor
+    
+    container_name: validator
+    restart: always
+    ports:
+      - 26658:26658
+      - 26657:26657
+      - 26656:26656
+      - 9090:9090
+      - 1317:1317
+    environment:
+      - COSMPATH=genesis
+      - FLAGS=run start
+      - DAEMON_NAME=odind
+      - DAEMON_HOME=/root/.odin
+      - UNSAFE_SKIP_BACKUP=true
+    networks:
+      default:
+        ipv4_address: 172.18.0.2
+    volumes:
+      - ./data:/root/.odin/data
+      - ./config:/root/.odin/config
+
+  yoda:
+    image: geodbodinprotocol/core:v0.7.2
+    container_name: yoda
+    depends_on:
+      - validator
+    restart: always
+    networks:
+      default:
+        ipv4_address: 172.18.0.3
+    command: sh -c "yoda run --log-level debug --node tcp://172.18.0.2:26657"
+    volumes:
+      - ../.yoda:/root/.yoda
+
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/16"
