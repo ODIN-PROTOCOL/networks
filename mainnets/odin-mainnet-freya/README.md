@@ -147,7 +147,7 @@ check sha256sum for downloaded genesis:
 
 ```bash:
 sha256sum ~/.odin/config/genesis.json
-253d946d4986673f6ea5ad410380ad8ac879b04b7a35a05f69c6fc459b2c1afc  ~/.odin/config/genesis.json
+b19463cb9b847bdfc7dbf8133d9702d0a0ecc4175335c4a75db211e0196f84b3  ~/.odin/config/genesis.json
 ```
 
 checksum should match
