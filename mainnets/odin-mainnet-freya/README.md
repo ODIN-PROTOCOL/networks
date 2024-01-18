@@ -28,10 +28,12 @@ sudo apt-get install make build-essential gcc git jq chrony wget curl -y
 #### 2. Install Go
 Follow the instructions [here](https://golang.org/doc/install) to install Go.
 
+Recommended version of go is 1.20.6
+
 Alternatively, for Ubuntu LTS, you can do:
 ```bash:
-wget https://golang.org/dl/go1.18.10.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzvf go1.18.10.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.20.6.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzvf go1.20.6.linux-amd64.tar.gz
 ```
 
 Unless you want to configure in a non standard way, then set these in the `.profile` in the user's home (i.e. `~/`) folder.
@@ -39,7 +41,7 @@ Unless you want to configure in a non standard way, then set these in the `.prof
 ```bash:
 cat <<EOF >> ~/.profile
 export MONIKER_NAME="CHANGE_ME"
-EXPORT LIVE_RPC_NODE="http://35.241.221.154:26657"
+EXPORT LIVE_RPC_NODE="http://34.38.73.153:26657"
 export CHAIN_ID="odin-mainnet-freya"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
@@ -50,7 +52,7 @@ source ~/.profile
 go version
 ```
 
-Output should be: `go version go1.18.10 linux/amd64`
+Output should be: `go version go1.20.6 linux/amd64`
 
 <a id="install-odind"></a>
 ### Install Odind from source
@@ -65,8 +67,9 @@ git clone https://github.com/ODIN-PROTOCOL/odin-core.git
 ```shell
 cd odin-core
 git fetch --tags
-git checkout v0.6.2
+git checkout v0.7.7
 ```
+
 #### 2. Install CLI
 ```shell
 make all
@@ -77,12 +80,21 @@ To confirm that the installation was successful, you can run:
 ```bash:
 odind version
 ```
-Output should be: `v0.6.2`
+Output should be: `v0.7.7`
 
 ## Instruction for new validators
 
 ### Init
-This step is essential to init a `secp256k1` (required) key instead of `ed25519` (default)
+This step is essential to init a `secp256k1` (required) key instead of `ed25519` (default), if you don't want to use horcrux for distributed signing.
+
+If you want to use `ed25519` key type for remote signing, use this workaround method:
+
+```bash:
+odind start
+```
+
+node will crush, but will generate your ~/.odind/config/priv_validator_key.json in `ed25519` format. Copy the file and remove `~/.odind/config` folder.
+
 ```bash:
 odind init "change_me" --chain-id $CHAIN_ID
 ```
@@ -122,22 +134,26 @@ perl -i -pe 's/^minimum-gas-prices = .+?$/minimum-gas-prices = "0.0125loki"/' ~/
 ### Add persistent peers
 Provided is a small list of peers, however more can be found the `peers.txt` file
 ```bash:
-SEEDS="$(curl https://chainregistry.xyz/v1/mainnet/odin/peers/seed_string)"
-sed -i.bak -e "s/^seeds *=.*/seeds = \"$SEEDS\"/" ~/.odin/config/config.toml
+PEERS="d23013e1a0a82d71d251f96c63609ee88af2e29c@34.38.73.153:26656,3ae5858dbad9c65f07f1bd8ccf6c2bf9e089dbb1@34.78.8.181:26656,5cfe57184c002bf2050b5a1d1d247dccf18784f1@34.78.212.147:26656"
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.odin/config/config.toml
 ```
 
 ### Download new genesis file
 ```bash:
-curl https://raw.githubusercontent.com/ODIN-PROTOCOL/networks/master/mainnets/odin-mainnet-freya/genesis.json > ~/.odin/config/genesis.json
+curl https://storage.googleapis.com/odin-mainnet-freya/genesis.json > ~/.odin/config/genesis.json
 ```
 
-### Download and extract the latest snapshot
-Navigate to https://imperator.co/services/odin and find the latest snapshot. update the LATEST variable below with the latest snapshot url. 
-Example:
+check sha256sum for downloaded genesis:
+
 ```bash:
-LATEST="https://api-minio-nord.imperator.co/snapshots/odin/odin_8765146.tar.lz4"
-curl -o - -L $LATEST | lz4 -c -d - | tar -xv -C $HOME/.odin
+sha256sum ~/.odin/config/genesis.json
+253d946d4986673f6ea5ad410380ad8ac879b04b7a35a05f69c6fc459b2c1afc  ~/.odin/config/genesis.json
 ```
+
+checksum should match
+
+### If you are upgrading from old version
+It is important to clean ~/.odin/data folder before joining upgraded `odin-mainnet-freya` chain, if you're spinning your validator for the first time 
 
 ### Setup Unit/Daemon file
 
