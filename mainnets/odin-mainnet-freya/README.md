@@ -28,12 +28,12 @@ sudo apt-get install make build-essential gcc git jq chrony wget curl -y
 #### 2. Install Go
 Follow the instructions [here](https://golang.org/doc/install) to install Go.
 
-Recommended version of go is 1.20.6
+Recommended version of go is 1.20.13
 
 Alternatively, for Ubuntu LTS, you can do:
 ```bash:
-wget https://golang.org/dl/go1.20.6.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzvf go1.20.6.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.20.13.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzvf go1.20.13.linux-amd64.tar.gz
 ```
 
 Unless you want to configure in a non standard way, then set these in the `.profile` in the user's home (i.e. `~/`) folder.
@@ -52,7 +52,7 @@ source ~/.profile
 go version
 ```
 
-Output should be: `go version go1.20.6 linux/amd64`
+Output should be: `go version go1.20.13 linux/amd64`
 
 <a id="install-odind"></a>
 ### Install Odind from source
@@ -67,7 +67,7 @@ git clone https://github.com/ODIN-PROTOCOL/odin-core.git
 ```shell
 cd odin-core
 git fetch --tags
-git checkout v0.7.7
+git checkout v0.7.9
 ```
 
 #### 2. Install CLI
@@ -80,7 +80,7 @@ To confirm that the installation was successful, you can run:
 ```bash:
 odind version
 ```
-Output should be: `v0.7.7`
+Output should be: `0.7.9`
 
 ## Instruction for new validators
 
